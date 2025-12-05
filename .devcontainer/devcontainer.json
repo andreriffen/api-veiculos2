@@ -1,0 +1,48 @@
+{
+    "name": "API Veículos - Java 17",
+    "image": "mcr.microsoft.com/devcontainers/java:17",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-spring-boot-dashboard",
+                "vmware.vscode-spring-boot",
+                "gabrielbb.vscode-lombok"
+            ],
+            "settings": {
+                "java.configuration.runtimes": [
+                    {
+                        "name": "JavaSE-17",
+                        "path": "/usr/local/sdkman/candidates/java/current",
+                        "default": true
+                    }
+                ],
+                "terminal.integrated.profiles.linux": {
+                    "bash": {
+                        "path": "/bin/bash",
+                        "args": [
+                            "-l"
+                        ],
+                        "icon": "terminal-bash",
+                        "color": "terminal.ansiGreen",
+                        "overrideName": true
+                    }
+                },
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "terminal.integrated.tabs.title": "${profile}",
+                "files.autoSave": "afterDelay"
+            }
+        }
+    },
+    "forwardPorts": [
+        8080
+    ],
+    "portsAttributes": {
+        "8080": {
+            "label": "🚀 API Spring Boot",
+            "onAutoForward": "notify"
+        }
+    },
+    "postCreateCommand": "chmod +x mvnw startup.sh populate-data.sh test-api.sh",
+    "remoteUser": "vscode"
+}
