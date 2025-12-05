@@ -18,13 +18,24 @@
                     }
                 ],
                 "terminal.integrated.profiles.linux": {
-                    "bash": {
+                    "API Server": {
+                        "path": "/bin/bash",
+                        "args": [
+                            "-l",
+                            "-c",
+                            "./startup.sh"
+                        ],
+                        "icon": "rocket",
+                        "color": "terminal.ansiGreen",
+                        "overrideName": true
+                    },
+                    "Interactions": {
                         "path": "/bin/bash",
                         "args": [
                             "-l"
                         ],
-                        "icon": "terminal-bash",
-                        "color": "terminal.ansiGreen",
+                        "icon": "comment-discussion",
+                        "color": "terminal.ansiBlue",
                         "overrideName": true
                     }
                 },
