@@ -76,7 +76,7 @@ while [ $ELAPSED -lt $TIMEOUT ]; do
         echo "📊 INFORMAÇÕES:"
         echo "   🌐 API: http://localhost:8080"
         echo "   🗄️  H2 Console: http://localhost:8080/h2-console"
-        echo "   📝 JDBC: jdbc:h2:mem:lavacao (user: sa, pass: vazio)"
+        echo "   📝 JDBC: jdbc:h2:mem:apiveiculos2 (user: sa, pass: vazio)"
         echo "   🔧 PID: $SPRING_PID"
         echo ""
         echo "🎮 COMANDOS:"

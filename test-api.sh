@@ -192,7 +192,11 @@ echo "➤ 16. POST /modelos - Criando Civic (Honda)"
 RESP=$(auth_curl -X POST "$BASE_URL/modelos" \
   -H 'Content-Type: application/json' \
   -d "{
-  \"descricao\": \"Civic $UNIQUE_SUFFIX\",
+  \"descricao\": \"Civic $UNIQUE_SUFFIX\",\
+  \"motor\": {\
+    \"potencia\": 150,\
+    \"tipoCombustivel\": \"GASOLINA\"\
+  },\
   \"marcaId\": $MARCA_HONDA
 }")
 pretty_print "$RESP"
@@ -203,7 +207,11 @@ echo "➤ 17. POST /modelos - Criando Onix (Chevrolet)"
 RESP=$(auth_curl -X POST "$BASE_URL/modelos" \
   -H 'Content-Type: application/json' \
   -d "{
-  \"descricao\": \"Onix $UNIQUE_SUFFIX\",
+  \"descricao\": \"Onix $UNIQUE_SUFFIX\",\
+  \"motor\": {\
+    \"potencia\": 116,\
+    \"tipoCombustivel\": \"FLEX\"\
+  },\
   \"marcaId\": $MARCA_CHEVROLET
 }")
 pretty_print "$RESP"
@@ -238,15 +246,11 @@ echo "➤ 21. POST /veiculos - Criando $PLACA_CIVIC (Civic Azul)"
 RESP=$(auth_curl -X POST "$BASE_URL/veiculos" \
   -H 'Content-Type: application/json' \
   -d "{
-  \"placa\": \"$PLACA_CIVIC\",
-  \"observacoes\": \"Veículo importado\",
-  \"motor\": {
-    \"potencia\": 150,
-    \"tipoCombustivel\": \"GASOLINA\"
-  },
-  \"corId\": $COR_AZUL,
-  \"modeloId\": $MODELO_CIVIC,
-  \"proprietarioId\": $CLIENTE_PEDRO
+  \"placa\": \"$PLACA_CIVIC\",\
+  \"observacoes\": \"Veículo importado\",\
+  \"corId\": $COR_AZUL,\
+  \"modeloId\": $MODELO_CIVIC,\
+  \"proprietarioId\": $CLIENTE_PEDRO\
 }")
 pretty_print "$RESP"
 VEICULO_CIVIC=$(extract_id "$RESP")
@@ -256,15 +260,11 @@ echo "➤ 22. POST /veiculos - Criando $PLACA_ONIX (Onix Verde)"
 RESP=$(auth_curl -X POST "$BASE_URL/veiculos" \
   -H 'Content-Type: application/json' \
   -d "{
-  \"placa\": \"$PLACA_ONIX\",
-  \"observacoes\": \"Carro zero km\",
-  \"motor\": {
-    \"potencia\": 116,
-    \"tipoCombustivel\": \"FLEX\"
-  },
-  \"corId\": $COR_VERDE,
-  \"modeloId\": $MODELO_ONIX,
-  \"proprietarioId\": $CLIENTE_ANA
+  \"placa\": \"$PLACA_ONIX\",\
+  \"observacoes\": \"Carro zero km\",\
+  \"corId\": $COR_VERDE,\
+  \"modeloId\": $MODELO_ONIX,\
+  \"proprietarioId\": $CLIENTE_ANA\
 }")
 pretty_print "$RESP"
 VEICULO_ONIX=$(extract_id "$RESP")
@@ -282,15 +282,11 @@ echo "➤ 25. PUT /veiculos/{id} - Atualizando observações do veículo"
 auth_curl -X PUT "$BASE_URL/veiculos/$VEICULO_CIVIC" \
   -H 'Content-Type: application/json' \
   -d "{
-  \"placa\": \"$PLACA_CIVIC\",
-  \"observacoes\": \"Veículo com manutenção recente\",
-  \"motor\": {
-    \"potencia\": 150,
-    \"tipoCombustivel\": \"GASOLINA\"
-  },
-  \"corId\": $COR_AZUL,
-  \"modeloId\": $MODELO_CIVIC,
-  \"proprietarioId\": $CLIENTE_PEDRO
+  \"placa\": \"$PLACA_CIVIC\",\
+  \"observacoes\": \"Veículo com manutenção recente\",\
+  \"corId\": $COR_AZUL,\
+  \"modeloId\": $MODELO_CIVIC,\
+  \"proprietarioId\": $CLIENTE_PEDRO\
 }" | jq '.'
 echo ""
 

@@ -261,6 +261,10 @@ MODELO1=$(curl -s -u "$AUTH_CREDENTIALS" -X POST "$BASE_URL/modelos" \
   -H 'Content-Type: application/json' \
   -d "{
   \"descricao\": \"Uno $UNIQUE_SUFFIX\",
+  \"motor\": {
+    \"potencia\": 75,
+    \"tipoCombustivel\": \"FLEX\"
+  },
   \"marcaId\": $MARCA1
 }" | jq -r '.id')
 echo "   ✅ Modelo criado com ID: $MODELO1"
@@ -275,6 +279,10 @@ MODELO2=$(curl -s -u "$AUTH_CREDENTIALS" -X POST "$BASE_URL/modelos" \
   -H 'Content-Type: application/json' \
   -d "{
   \"descricao\": \"Gol $UNIQUE_SUFFIX\",
+  \"motor\": {
+    \"potencia\": 80,
+    \"tipoCombustivel\": \"GASOLINA\"
+  },
   \"marcaId\": $MARCA2
 }" | jq -r '.id')
 echo "   ✅ Modelo criado com ID: $MODELO2"
@@ -289,6 +297,10 @@ MODELO3=$(curl -s -u "$AUTH_CREDENTIALS" -X POST "$BASE_URL/modelos" \
   -H 'Content-Type: application/json' \
   -d "{
   \"descricao\": \"Corolla $UNIQUE_SUFFIX\",
+  \"motor\": {
+    \"potencia\": 154,
+    \"tipoCombustivel\": \"FLEX\"
+  },
   \"marcaId\": $MARCA3
 }" | jq -r '.id')
 echo "   ✅ Modelo criado com ID: $MODELO3"
@@ -303,6 +315,10 @@ MODELO4=$(curl -s -u "$AUTH_CREDENTIALS" -X POST "$BASE_URL/modelos" \
   -H 'Content-Type: application/json' \
   -d "{
   \"descricao\": \"Palio $UNIQUE_SUFFIX\",
+  \"motor\": {
+    \"potencia\": 85,
+    \"tipoCombustivel\": \"GASOLINA\"
+  },
   \"marcaId\": $MARCA1
 }" | jq -r '.id')
 echo "   ✅ Modelo criado com ID: $MODELO4"
@@ -326,15 +342,11 @@ echo "📝 Criando veículo: $PLACA1 (Uno Preto)"
 VEICULO1=$(curl -s -u "$AUTH_CREDENTIALS" -X POST "$BASE_URL/veiculos" \
   -H 'Content-Type: application/json' \
   -d "{
-  \"placa\": \"$PLACA1\",
-  \"observacoes\": \"Veículo em bom estado\",
-  \"motor\": {
-    \"potencia\": 75,
-    \"tipoCombustivel\": \"FLEX\"
-  },
-  \"corId\": $COR1,
-  \"modeloId\": $MODELO1,
-  \"proprietarioId\": $CLIENTE1
+  \"placa\": \"$PLACA1\",\
+  \"observacoes\": \"Veículo em bom estado\",\
+  \"corId\": $COR1,\
+  \"modeloId\": $MODELO1,\
+  \"proprietarioId\": $CLIENTE1\
 }" | jq -r '.id')
 echo "   ✅ Veículo criado com ID: $VEICULO1"
 echo "   🔧 Motor: 75cv FLEX"
@@ -348,15 +360,11 @@ echo "📝 Criando veículo: $PLACA2 (Gol Branco)"
 VEICULO2=$(curl -s -u "$AUTH_CREDENTIALS" -X POST "$BASE_URL/veiculos" \
   -H 'Content-Type: application/json' \
   -d "{
-  \"placa\": \"$PLACA2\",
-  \"observacoes\": \"Revisão em dia\",
-  \"motor\": {
-    \"potencia\": 80,
-    \"tipoCombustivel\": \"GASOLINA\"
-  },
-  \"corId\": $COR2,
-  \"modeloId\": $MODELO2,
-  \"proprietarioId\": $CLIENTE2
+  \"placa\": \"$PLACA2\",\
+  \"observacoes\": \"Revisão em dia\",\
+  \"corId\": $COR2,\
+  \"modeloId\": $MODELO2,\
+  \"proprietarioId\": $CLIENTE2\
 }" | jq -r '.id')
 echo "   ✅ Veículo criado com ID: $VEICULO2"
 echo "   🔧 Motor: 80cv GASOLINA"
@@ -370,15 +378,11 @@ echo "📝 Criando veículo: $PLACA3 (Corolla Prata)"
 VEICULO3=$(curl -s -u "$AUTH_CREDENTIALS" -X POST "$BASE_URL/veiculos" \
   -H 'Content-Type: application/json' \
   -d "{
-  \"placa\": \"$PLACA3\",
-  \"observacoes\": \"Carro seminovo\",
-  \"motor\": {
-    \"potencia\": 154,
-    \"tipoCombustivel\": \"FLEX\"
-  },
-  \"corId\": $COR3,
-  \"modeloId\": $MODELO3,
-  \"proprietarioId\": $CLIENTE3
+  \"placa\": \"$PLACA3\",\
+  \"observacoes\": \"Carro seminovo\",\
+  \"corId\": $COR3,\
+  \"modeloId\": $MODELO3,\
+  \"proprietarioId\": $CLIENTE3\
 }" | jq -r '.id')
 echo "   ✅ Veículo criado com ID: $VEICULO3"
 echo "   🔧 Motor: 154cv FLEX"
@@ -392,15 +396,11 @@ echo "📝 Criando veículo: $PLACA4 (Palio Vermelho)"
 VEICULO4=$(curl -s -u "$AUTH_CREDENTIALS" -X POST "$BASE_URL/veiculos" \
   -H 'Content-Type: application/json' \
   -d "{
-  \"placa\": \"$PLACA4\",
-  \"observacoes\": \"Primeiro veículo\",
-  \"motor\": {
-    \"potencia\": 85,
-    \"tipoCombustivel\": \"GASOLINA\"
-  },
-  \"corId\": $COR4,
-  \"modeloId\": $MODELO4,
-  \"proprietarioId\": $CLIENTE1
+  \"placa\": \"$PLACA4\",\
+  \"observacoes\": \"Primeiro veículo\",\
+  \"corId\": $COR4,\
+  \"modeloId\": $MODELO4,\
+  \"proprietarioId\": $CLIENTE1\
 }" | jq -r '.id')
 echo "   ✅ Veículo criado com ID: $VEICULO4"
 echo "   🔧 Motor: 85cv GASOLINA"
